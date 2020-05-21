@@ -9,5 +9,7 @@ html
 
   body
     = render partial: "home/nav"
-    = yield
+    .container.content
+      = yield
+    = render partial: "home/footer"
   

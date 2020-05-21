@@ -1,0 +1,8 @@
+h1.title クリップ一覧
+- @clips.each do |clip|
+  .row
+    .col-md-4
+      = image_tag clip.image, width: 400, class: "img-fluid"
+    .col-md-8
+      h5= link_to clip.title, clip
+      p= clip.description
