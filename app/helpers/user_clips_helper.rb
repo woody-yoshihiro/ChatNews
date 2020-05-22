@@ -1,0 +1,2 @@
+module UserClipsHelper
+end

@@ -2,7 +2,7 @@ class ClipsController < ApplicationController
   before_action :set_clip, only: [:show, :edit, :update, :destroy]
 
   def index
-    @clips = Clip.all
+    @clips = Clip.all.order(created_at: :desc)
   end
 
   def show

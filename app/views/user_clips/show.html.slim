@@ -1,0 +1,11 @@
+p#notice = notice
+
+.row
+  h1.title = @clip.title
+  .col-md-4
+    = image_tag @clip.image, width: 400, class: "img-fluid" if @clip.image
+  .col-md-8
+    = link_to @clip.url, @clip.url, target: "_blank"
+    br
+    p= @clip.description
+    = link_to "マイクリップへ戻る", user_clips_path

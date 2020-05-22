@@ -1,5 +1,7 @@
 class Clip < ApplicationRecord
   before_save :create_page
+  has_many :user_clips
+  has_many :users, through: :user_clips
 
   def create_page
     begin

@@ -1,14 +1,22 @@
-.jumbotron {
-  padding: 8rem 4rem;
+.hero {
   background: image-url("home.jpg") center top; 
   background-size: cover;
   color: #fff;
+}
+
+.jumbotron {
+  padding: 8rem 4rem;
 }
 
 footer {
   background: #6927ff;
   color: #fff;
   padding: 5rem 0;
+}
+
+.container {
+  max-width: 2400px;
+  padding: 0 62px;
 }
 
 .content {

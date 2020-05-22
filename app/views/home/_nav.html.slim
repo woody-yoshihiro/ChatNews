@@ -8,6 +8,8 @@ nav.navbar.navbar-expand-lg.navbar-dark style="background-color: #6927ff;"
         = link_to "クリップ一覧", clips_path, class: "nav-link"
       -if user_signed_in?
         li.nav-item
+          = link_to "マイクリップ", user_clips_path, class: "nav-link"
+        li.nav-item
           = link_to "ログアウト", destroy_user_session_path, method: :delete, class: "nav-link"
         li.nav-item
           = link_to "編集", edit_user_registration_path, class: "nav-link"
@@ -16,4 +18,4 @@ nav.navbar.navbar-expand-lg.navbar-dark style="background-color: #6927ff;"
           = link_to "ログイン", new_user_session_path, class: "nav-link"
     ul.navbar-nav.ml-auto
       li.nav-item
-        = link_to "新規クリップ", new_clip_path, class: "btn btn-outline-light"
+        = link_to "新規クリップ", new_user_clip_path, class: "btn btn-outline-light"

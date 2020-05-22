@@ -1,0 +1,14 @@
+= form_with(model: @user_clip, local: true) do |form|
+  - if clip = @user_clip.clip
+    - if clip.errors.any?
+      #error_explanation
+      h2 = "#{pluralize(@user_clip.errors.count, "error")} prohibited this user_clip from being saved:"
+      ul
+        - @user_clip.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = label_tag :url
+    = text_field_tag :url
+  .actions = submit_tag "新規作成"
+

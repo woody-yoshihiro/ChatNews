@@ -9,6 +9,12 @@ html
 
   body
     = render partial: "home/nav"
+    - if current_page?(root_path)
+      .jumbotron.text-center.hero
+        .container
+          h1 あなたのニュースでトーク！
+          p ChatNewsはニュースを議論するサイトです。
+          = link_to "サインアップ", new_user_registration_path, class: "btn btn-success"
     .container.content
       = yield
     = render partial: "home/footer"

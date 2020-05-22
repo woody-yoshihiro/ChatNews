@@ -1,5 +1,9 @@
-.jumbotron.text-center.hero
-  .container
-    h1 あなたのニュースでトーク！
-    p ChatNewsはニュースを議論するサイトです。
-    = link_to "サインアップ", "#", class: "btn btn-success"
+.row
+  - @clips.each do |clip|
+    .card-deck
+      .col.mb-4.col-md-3
+        .card.h-100 style="width: 18rem;"
+          = image_tag clip.image, width: 286, height: 200, class: "card-img-top" if clip.image
+          .card-body
+            h5.card-title= link_to clip.title, clip
+            p.card-text= clip.description
