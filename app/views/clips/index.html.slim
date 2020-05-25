@@ -6,3 +6,9 @@ h1.title クリップ一覧
     .col-md-8
       h5= link_to clip.title, clip
       p= clip.description
+      i.fas.fa-bookmark.fa-lg
+      = clip.user_clips_count
+      |クリップ
+      i.fas.fa-user-edit.fa-lg
+      = clip.opinions_count 
+      |コメント

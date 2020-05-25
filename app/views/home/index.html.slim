@@ -6,4 +6,11 @@
           = image_tag clip.image, width: 286, height: 200, class: "card-img-top" if clip.image
           .card-body
             h5.card-title= link_to clip.title, clip
-            p.card-text= clip.description
+            p.card-text= clip.description.truncate(100)
+          .card-footer
+            i.fas.fa-bookmark
+            = clip.user_clips_count
+            |クリップ
+            i.fas.fa-user-edit
+            = clip.opinions_count 
+            |コメント

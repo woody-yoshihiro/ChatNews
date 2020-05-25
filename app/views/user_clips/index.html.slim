@@ -11,11 +11,16 @@ h1.title マイクリップ一覧
       br
       = clip.description
       br
+      br
+      i.fas.fa-bookmark.fa-lg
+      = clip.user_clips_count
+      |クリップ
+      i.fas.fa-user-edit.fa-lg
+      = clip.opinions_count 
+      |コメント
+      br
       .user_btn
         = link_to "クリップの詳細", user_clip_path(clip), class: "btn btn-outline-info"
         = link_to "クリップの編集", edit_user_clip_path(user_clip), class: "btn btn-outline-warning"
         = link_to "クリップの削除", user_clip, class: "btn btn-outline-danger", data: { confirm: "クリップを削除します。本当によろしいですか？" }, method: :delete
 
-br
-
-= link_to 'New User clip', new_user_clip_path

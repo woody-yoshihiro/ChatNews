@@ -1,0 +1,16 @@
+p#notice = notice
+
+ol.breadcrumb.mt-4
+  li.breadcrumb-item
+    = link_to "クリップ一覧", clips_url
+  li.breadcrumb-item
+    = link_to @clip.title.truncate(25), @clip
+
+.row
+  .col-md-8
+    h1= @opinion.title
+    = simple_format @opinion.body
+  .col-md-4
+    ul
+      - @opinions.each do |opinion|
+        li= link_to opinion.title, clip_opinion_path(@clip, opinion)

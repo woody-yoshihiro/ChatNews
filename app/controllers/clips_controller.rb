@@ -6,6 +6,8 @@ class ClipsController < ApplicationController
   end
 
   def show
+    @opinion = Opinion.new
+    @clips = Clip.all.order(created_at: :desc)
   end
 
   def new

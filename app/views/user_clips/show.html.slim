@@ -8,4 +8,13 @@ p#notice = notice
     = link_to @clip.url, @clip.url, target: "_blank"
     br
     p= @clip.description
+    br
+    i.fas.fa-bookmark.fa-lg
+    = @clip.user_clips_count
+    |クリップ
+    i.fas.fa-user-edit.fa-lg
+    = @clip.opinions_count 
+    |コメント
+    br
+    br
     = link_to "マイクリップへ戻る", user_clips_path

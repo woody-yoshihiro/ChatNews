@@ -1,11 +1,55 @@
 p#notice = notice
 
 .row
-  h1.title = @clip.title
-  .col-md-4
-    = image_tag @clip.image, width: 400, class: "img-fluid" if @clip.image
   .col-md-8
-    = link_to @clip.url, @clip.url, target: "_blank"
-    br
-    p= @clip.description
-    = link_to "クリップ一覧へ戻る", clips_path
+    .row
+      h1.title = @clip.title
+      .col-md-4
+        = image_tag @clip.image, width: 400, class: "img-fluid" if @clip.image
+      .col-md-8
+        = link_to @clip.url, @clip.url, target: "_blank"
+        br
+        p= @clip.description
+        i.fas.fa-bookmark.fa-lg
+        = @clip.user_clips_count
+        |クリップ
+        i.fas.fa-user-edit.fa-lg
+        = @clip.opinions_count 
+        |コメント
+        br
+        br
+        = link_to "クリップ一覧へ戻る", clips_path
+
+      - if @opinion && @opinion.errors.any?
+        #error_explanation
+          h5= pluralize(@opinion.errors.count, "error")
+          ul
+            -@opinion.errors.full_messages.each do |message|
+              li= message
+    -if user_signed_in?
+      h2 コメントする
+      .opinion-form
+        = form_for [@clip, @opinion] do |f|
+          = f.text_field :title, class: "form-control my-2", placeholder: "タイトルを書く"
+          = f.text_area :body, class: "form-control", placeholder: "コメント本文を書く"
+          = f.submit "コメントの作成", class: "btn btn-success my-2"
+    
+    h2.title この記事に関するコメント
+    - @clip.opinions.each do |opinion|
+      h5= opinion.user.nickname if opinion.user
+      p = link_to opinion.title, clip_opinion_path(opinion)
+      .text-right.small
+        span.text-muted
+          = jp_date opinion.created_at
+    hr
+  .col-md-4
+    h4.title ★人気のクリップ
+    ul
+      - @clips.each do |clip|
+        li.top = link_to clip.title, clip
+        i.fas.fa-bookmark
+        = clip.user_clips_count
+        |クリップ
+        i.fas.fa-user-edit
+        = clip.opinions_count 
+        |コメント

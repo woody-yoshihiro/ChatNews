@@ -1,0 +1,27 @@
+h1 Listing opinions
+
+table
+  thead
+    tr
+      th Title
+      th Body
+      th Clip
+      th User
+      th
+      th
+      th
+
+  tbody
+    - @opinions.each do |opinion|
+      tr
+        td = opinion.title
+        td = opinion.body
+        td = opinion.clip
+        td = opinion.user
+        td = link_to 'Show', opinion
+        td = link_to 'Edit', edit_opinion_path(opinion)
+        td = link_to 'Destroy', opinion, data: { confirm: 'Are you sure?' }, method: :delete
+
+br
+
+= link_to 'New Opinion', new_opinion_path
