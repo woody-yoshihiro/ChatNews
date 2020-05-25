@@ -7,7 +7,7 @@ class ClipsController < ApplicationController
 
   def show
     @opinion = Opinion.new
-    @clips = Clip.all.order(created_at: :desc)
+    @clips = Clip.all.limit(8).order(opinions_count: :desc)
   end
 
   def new
