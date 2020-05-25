@@ -37,7 +37,7 @@ p#notice = notice
     h2.title この記事に関するコメント
     - @clip.opinions.each do |opinion|
       h5= opinion.user.nickname if opinion.user
-      p = link_to opinion.title, clip_opinion_path(opinion)
+      p = link_to opinion.title, opinion_path(opinion)
       .text-right.small
         span.text-muted
           = jp_date opinion.created_at

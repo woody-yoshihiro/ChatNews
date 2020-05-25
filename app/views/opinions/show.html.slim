@@ -13,4 +13,4 @@ ol.breadcrumb.mt-4
   .col-md-4
     ul
       - @opinions.each do |opinion|
-        li= link_to opinion.title, clip_opinion_path(@clip, opinion)
+        li= link_to opinion.title, opinion_path(opinion)
