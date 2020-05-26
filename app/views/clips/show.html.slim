@@ -46,7 +46,7 @@ p#notice = notice
     h4.title ★人気のクリップ
     ul
       - @clips.each do |clip|
-        li.top = link_to clip.title, clip
+        li.top = link_to_unless_current clip.title, clip
         i.fas.fa-bookmark
         = clip.user_clips_count
         |クリップ
