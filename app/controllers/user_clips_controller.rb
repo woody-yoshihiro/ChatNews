@@ -23,7 +23,7 @@ class UserClipsController < ApplicationController
 
     respond_to do |format|
       if @clip.save && @user_clip.save
-        format.html { redirect_to user_clips_url, notice: 'User clip was successfully created.' }
+        format.html { redirect_to user_clips_url, notice: "新しいクリップを作成しました" }
         format.json { render :show, status: :created, location: @user_clip }
       else
         format.html { render :new }

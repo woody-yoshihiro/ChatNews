@@ -7,8 +7,10 @@
         - @user_clip.errors.full_messages.each do |message|
           li = message
 
-  .field
+  .form-group
     = label_tag :url
+    br
     = text_field_tag :url
-  .actions = submit_tag "新規作成"
+  br
+  .actions = submit_tag "新規作成", class: "button right"
 
