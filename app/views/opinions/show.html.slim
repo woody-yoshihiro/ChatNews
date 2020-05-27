@@ -10,6 +10,8 @@ ol.breadcrumb.mt-4
   .col-md-8
     h1= @opinion.title
     = simple_format @opinion.body
+    .like
+      = render partial: "opinions/like"
   .col-md-4
     ul
       - @opinions.each do |opinion|

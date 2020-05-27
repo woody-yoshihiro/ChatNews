@@ -8,4 +8,8 @@ Rails.application.routes.draw do
   resources :clips, only: [:index, :show] do
     resources :opinions, shallow: true
   end
+
+  resources :opinions do
+    resources :likes
+  end
 end

@@ -1,0 +1,6 @@
+- if @like.new_record?
+  = button_to "#{@opinion.likes.count} いいね", [@opinion, @like],
+    class: "btn btn-danger", remote: true
+- else
+  = button_to "#{@opinion.likes.count} いいねを取り消す", [@opinion, @like],
+    class: "btn btn-outline-danger", method: :delete, remote: true

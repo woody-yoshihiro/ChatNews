@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_24_053057) do
+ActiveRecord::Schema.define(version: 2020_05_27_044206) do
 
   create_table "clips", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "url"
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(version: 2020_05_24_053057) do
     t.datetime "updated_at", null: false
     t.integer "opinions_count", default: 0
     t.integer "user_clips_count", default: 0
+  end
+
+  create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "opinion_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["opinion_id"], name: "index_likes_on_opinion_id"
+    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "opinions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -56,6 +65,8 @@ ActiveRecord::Schema.define(version: 2020_05_24_053057) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "likes", "opinions"
+  add_foreign_key "likes", "users"
   add_foreign_key "opinions", "clips"
   add_foreign_key "opinions", "users"
   add_foreign_key "user_clips", "clips"

@@ -8,6 +8,7 @@ class OpinionsController < ApplicationController
   def show
     @clip = @opinion.clip
     @opinions = @clip.opinions
+    @like = current_user.likes.find_or_initialize_by(opinion: @opinion)
   end
 
   def new
