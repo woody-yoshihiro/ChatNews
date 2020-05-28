@@ -6,6 +6,7 @@
           = image_tag clip.image, width: 286, height: 200, class: "card-img-top" if clip.image
           .card-body
             h5.card-title= link_to clip.title, clip
+            hr
             p.card-text= clip.description.truncate(100)
           .card-footer
             i.fas.fa-bookmark
