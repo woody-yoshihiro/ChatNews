@@ -1,6 +1,6 @@
 - if @like.new_record?
-  = button_to [@opinion, @like],class: "btn btn-outline-danger", remote: true do
+  = button_to [@opinion, @like], remote: true, class: "btn btn-outline-danger" do
     i.far.fa-thumbs-up.like-btn= "#{@opinion.likes.count}"
 - else
-  = button_to [@opinion, @like],class: "btn btn-danger", method: :delete, remote: true do
+  = button_to [@opinion, @like], remote: true, class: "btn btn-danger", method: :delete do
     i.fas.fa-thumbs-up.down-btn= "#{@opinion.likes.count}"
